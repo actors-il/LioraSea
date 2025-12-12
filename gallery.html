@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>גלריה - ליאורה לוי</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Gallery Page Specific Styles */
+        .gallery-page {
+            min-height: 100vh;
+            padding: 4rem 2rem;
+            background: rgba(10, 24, 40, 0.9);
+        }
+
+        .gallery-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .gallery-title {
+            font-family: 'Heebo', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 300;
+            color: var(--sea-foam);
+            margin-bottom: 1rem;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: transparent;
+            border: 2px solid var(--shore-sand);
+            color: var(--shore-sand);
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            transition: all 0.3s ease;
+            margin-bottom: 2rem;
+        }
+
+        .back-button:hover {
+            background: var(--shore-sand);
+            color: var(--deep-ocean);
+        }
+
+        .gallery-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            border: 2px solid rgba(156, 199, 217, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            border-color: var(--shore-sand);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+            z-index: 10;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90vh;
+            position: relative;
+        }
+
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 90vh;
+            object-fit: contain;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0.5rem 1rem;
+        }
+
+        .lightbox-close:hover {
+            color: var(--shore-sand);
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="ocean-bg"></div>
+    
+    <section class="gallery-page">
+        <div class="gallery-header">
+            <h1 class="gallery-title">גלריה</h1>
+            <a href="index.html" class="back-button">← חזרה לדף הראשי</a>
+        </div>
+
+        <div class="gallery-grid">
+            <div class="gallery-item" onclick="openLightbox('pics/A40A4901.jpg')">
+                <img src="pics/035A0721L.jpg" alt="ליאורה לוי">
+            </div>
+            <div class="gallery-item" onclick="openLightbox('pics/A40A4901.jpg')">
+                <img src="pics/035A0752.jpg" alt="ליאורה לוי">
+            </div>
+            <div class="gallery-item" onclick="openLightbox('pics/A40A4901.jpg')">
+                <img src="pics/035A0757AL.jpg" alt="ליאורה לוי">
+            </div>
+            <div class="gallery-item" onclick="openLightbox('pics/A40A4901.jpg')">
+                <img src="pics/A40A5067.jpg" alt="ליאורה לוי">
+            </div>
+            <div class="gallery-item" onclick="openLightbox('pics/A40A4901.jpg')">
+                <img src="pics/A40A4902P3S.jpg" alt="ליאורה לוי">
+            </div>
+            <div class="gallery-item" onclick="openLightbox('pics/A40A4901.jpg')">
+                <img src="pics/035A0697.jpg" alt="ליאורה לוי">
+            </div>
+            <div class="gallery-item" onclick="openLightbox('pics/A40A4901.jpg')">
+                <img src="pics/035A0673.jpg" alt="ליאורה לוי">
+            </div>
+            <div class="gallery-item" onclick="openLightbox('pics/A40A4901.jpg')">
+                <img src="pics/A40A4901.jpg" alt="ליאורה לוי">
+            </div>
+            <div class="gallery-item" onclick="openLightbox('pics/A40A4901.jpg')">
+                <img src="pics/A40A50801.jpg" alt="ליאורה לוי">
+            </div>
+            <div class="gallery-item" onclick="openLightbox('pics/A40A4901.jpg')">
+                <img src="pics/A40A51112.jpg" alt="ליאורה לוי">
+            </div>
+            <div class="gallery-item" onclick="openLightbox('pics/A40A4901.jpg')">
+                <img src="pics/A40A51102.jpg" alt="ליאורה לוי">
+            </div>
+            <div class="gallery-item" onclick="openLightbox('pics/A40A4901.jpg')">
+                <img src="pics/A40A5092.jpg" alt="ליאורה לוי">
+                
+            </div>
+        </div>
+         <div class="gallery-header">
+            <h1 class="gallery-title"></h1>
+            <a href="index.html" class="back-button">← חזרה לדף הראשי</a>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+            <button class="lightbox-close" onclick="closeLightbox()">×</button>
+            <img id="lightbox-img" src="" alt="ליאורה לוי">
+        </div>
+    </div>
+
+    <script>
+        function openLightbox(src) {
+            document.getElementById('lightbox').classList.add('active');
+            document.getElementById('lightbox-img').src = src;
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+    </script>
+</body>
+</html>
