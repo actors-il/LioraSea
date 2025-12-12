@@ -117,7 +117,7 @@ body {
 /* Gallery Link */
 .gallery-link-container {
     text-align: center;
-    padding: 1rem 0 2rem 0;
+    padding: 0.5rem 0 1rem 0;
 }
 
 .gallery-link {
@@ -139,13 +139,13 @@ body {
 }
 /* Hero Section */
 .hero {
-    min-height: 80vh;
+    min-height: 60vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     position: relative;
-    padding: 2rem;
+     padding: 0.5rem 1rem;
     text-align: center;
 }
 
